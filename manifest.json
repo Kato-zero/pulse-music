@@ -1,21 +1,17 @@
 {
   "name": "Pulse Music",
-  "short_name": "Pulse Music",
-  "description": "Your modern offline music player - Play your local music files anytime, anywhere",
-  "start_url": "/",
-  "scope": "/",
+  "short_name": "Pulse",
+  "start_url": "./index.html",
   "display": "standalone",
-  "orientation": "portrait-primary",
   "background_color": "#09090b",
   "theme_color": "#09090b",
-  "categories": ["music", "entertainment", "utilities"],
-  
+  "orientation": "portrait",
+  "scope": "./",
   "icons": [
     {
-      "src": "/icons/icon-192x192.png",
+      "src": "icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
 }
