@@ -4,15 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta name="description" content="Pulse Music - Modern offline music player" />
+  <meta name="description" content="Pulse Music Offline Player" />
 
   <title>Pulse Music</title>
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
@@ -24,23 +22,20 @@
     :root{
       --bg:#0a0a0f;
       --card:rgba(255,255,255,0.06);
-      --card2:rgba(255,255,255,0.08);
+      --card2:rgba(255,255,255,0.1);
       --text:#fff;
       --muted:rgba(255,255,255,0.6);
       --green:#22c55e;
       --green2:#16a34a;
       --border:rgba(255,255,255,0.08);
-      --shadow:0 20px 60px rgba(0,0,0,0.5);
     }
 
     *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
 
     body{
-      background: radial-gradient(circle at top, #111827, #0a0a0f 60%);
-      color:var(--text);
+      background:radial-gradient(circle at top,#111827,#0a0a0f 60%);
+      color:#fff;
       min-height:100vh;
-      -webkit-font-smoothing:antialiased;
-      overflow-x:hidden;
     }
 
     .app{
@@ -49,46 +44,31 @@
       padding-bottom:180px;
     }
 
-    /* TOP BAR */
+    /* TOP */
     .topbar{
-      position:sticky;
-      top:0;
-      z-index:10;
-      backdrop-filter:blur(20px);
-      background:rgba(10,10,15,0.7);
-      border-bottom:1px solid var(--border);
-      padding:18px 18px;
       display:flex;
       justify-content:space-between;
       align-items:center;
-    }
-
-    .brand h1{
-      font-size:1.4rem;
-      font-weight:700;
-      letter-spacing:-0.5px;
-    }
-
-    .brand span{
-      font-size:0.8rem;
-      color:var(--muted);
+      padding:18px;
+      position:sticky;
+      top:0;
+      background:rgba(10,10,15,0.7);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
     }
 
     .btn{
-      width:48px;height:48px;
+      width:48px;
+      height:48px;
       border-radius:14px;
       border:none;
       cursor:pointer;
-      color:white;
       background:linear-gradient(135deg,var(--green),var(--green2));
+      color:white;
       display:flex;
       align-items:center;
       justify-content:center;
-      box-shadow:0 10px 30px rgba(34,197,94,0.3);
-      transition:0.2s;
     }
-
-    .btn:active{transform:scale(0.95);}
 
     /* HERO */
     .hero{
@@ -96,39 +76,13 @@
     }
 
     .hero-card{
-      padding:24px;
-      border-radius:22px;
-      background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03));
+      padding:22px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.06);
       border:1px solid var(--border);
-      box-shadow:var(--shadow);
-    }
-
-    .hero-card h2{
-      font-size:1.7rem;
-      margin-bottom:8px;
-    }
-
-    .hero-card p{
-      color:var(--muted);
-      font-size:0.95rem;
-      line-height:1.5;
     }
 
     /* LIST */
-    .section-title{
-      padding:0 20px;
-      margin-top:10px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .section-title h3{
-      font-size:1rem;
-      color:var(--muted);
-      font-weight:600;
-    }
-
     .playlist{
       padding:15px 20px;
       display:flex;
@@ -138,39 +92,26 @@
 
     .song{
       display:flex;
-      align-items:center;
       gap:12px;
+      align-items:center;
       padding:14px;
-      border-radius:18px;
+      border-radius:16px;
       background:var(--card);
       border:1px solid var(--border);
       cursor:pointer;
       transition:0.2s;
     }
 
-    .song:hover{
-      background:var(--card2);
-      transform:translateX(4px);
-    }
-
-    .song.active{
-      border:1px solid rgba(34,197,94,0.5);
-      background:rgba(34,197,94,0.1);
-    }
+    .song:hover{background:var(--card2);}
 
     .icon{
-      width:48px;
-      height:48px;
+      width:46px;
+      height:46px;
       border-radius:14px;
       background:linear-gradient(135deg,var(--green),var(--green2));
       display:flex;
       align-items:center;
       justify-content:center;
-    }
-
-    .song-info{
-      flex:1;
-      overflow:hidden;
     }
 
     .song-info h4{
@@ -194,52 +135,31 @@
       max-width:900px;
       margin:auto;
       background:rgba(10,10,15,0.9);
-      backdrop-filter:blur(25px);
+      backdrop-filter:blur(20px);
       border-top:1px solid var(--border);
-      padding:16px 18px;
-      box-shadow:0 -10px 40px rgba(0,0,0,0.4);
-    }
-
-    .now{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:10px;
-    }
-
-    .now h4{
-      font-size:0.95rem;
-      font-weight:600;
-    }
-
-    .now span{
-      font-size:0.8rem;
-      color:var(--muted);
+      padding:16px;
     }
 
     .controls{
       display:flex;
       justify-content:center;
-      align-items:center;
       gap:18px;
       margin-top:10px;
     }
 
     .cbtn{
-      width:48px;
-      height:48px;
+      width:50px;
+      height:50px;
       border-radius:50%;
       border:none;
       background:rgba(255,255,255,0.08);
       color:white;
-      cursor:pointer;
     }
 
     .play{
       width:64px;
       height:64px;
       background:linear-gradient(135deg,var(--green),var(--green2));
-      box-shadow:0 10px 30px rgba(34,197,94,0.35);
     }
 
     .empty{
@@ -254,92 +174,261 @@
 
 <div class="app">
 
-  <header class="topbar">
-    <div class="brand">
-      <h1>🎵 Pulse Music</h1>
-      <span>Offline Player</span>
-    </div>
+  <!-- TOP -->
+  <div class="topbar">
+    <h3>🎵 Pulse Music</h3>
 
-    <button class="btn" id="pickFolder">
+    <button class="btn" id="importBtn">
       <i class="fa-solid fa-folder-open"></i>
     </button>
-  </header>
+  </div>
 
-  <section class="hero">
+  <!-- HERO -->
+  <div class="hero">
     <div class="hero-card">
-      <h2>Feel Your Music</h2>
-      <p>Select a folder and enjoy a smooth offline listening experience built for mobile.</p>
+      <h2>Offline Music Library</h2>
+      
     </div>
-  </section>
-
-  <div class="section-title">
-    <h3>Your Library</h3>
   </div>
 
-  <div class="playlist" id="playlist">
-    <div class="empty">No songs loaded yet</div>
-  </div>
+  <!-- LIST -->
+  <div class="playlist" id="playlist"></div>
 
 </div>
 
 <!-- PLAYER -->
-<footer class="player">
-  <div class="now">
-    <h4 id="title">Nothing playing</h4>
-    <span>Pulse</span>
-  </div>
+<div class="player">
+  <div id="title">Nothing playing</div>
 
   <div class="controls">
     <button class="cbtn" id="prev"><i class="fa-solid fa-backward"></i></button>
     <button class="cbtn play" id="play"><i class="fa-solid fa-play"></i></button>
     <button class="cbtn" id="next"><i class="fa-solid fa-forward"></i></button>
   </div>
-</footer>
+</div>
 
 <audio id="audio"></audio>
 
-<script>
-class Player {
+<script>class Player {
   constructor(){
+    this.dbName="pulse-db";
+    this.storeSongs="songs";
+    this.storeLists="playlists";
+
     this.songs=[];
-    this.i=0;
+    this.playlists=[];
+    this.current=0;
+    this.currentList="all";
 
     this.audio=document.getElementById("audio");
     this.list=document.getElementById("playlist");
     this.title=document.getElementById("title");
 
+    this.init();
     this.bind();
   }
 
+  async init(){
+    await this.loadAll();
+    await this.loadPlaylists();
+  }
+
   bind(){
-    document.getElementById("pickFolder").onclick=()=>this.pick();
+    document.getElementById("importBtn").onclick=()=>this.importSongs();
     document.getElementById("play").onclick=()=>this.toggle();
     document.getElementById("next").onclick=()=>this.next();
     document.getElementById("prev").onclick=()=>this.prev();
+
+    this.addSearchUI();
+    this.addPlaylistUI();
   }
 
-  async pick(){
+  /* ---------------- DB ---------------- */
+  db(){
+    return new Promise((res,rej)=>{
+      const req=indexedDB.open(this.dbName,2);
+
+      req.onupgradeneeded=()=>{
+        const db=req.result;
+
+        if(!db.objectStoreNames.contains(this.storeSongs)){
+          db.createObjectStore(this.storeSongs,{keyPath:"id",autoIncrement:true});
+        }
+
+        if(!db.objectStoreNames.contains(this.storeLists)){
+          db.createObjectStore(this.storeLists,{keyPath:"name"});
+        }
+      };
+
+      req.onsuccess=()=>res(req.result);
+      req.onerror=()=>rej(req.error);
+    });
+  }
+
+  /* ---------------- IMPORT ---------------- */
+  async importSongs(){
     const dir=await window.showDirectoryPicker();
-    this.songs=[];
 
     for await(const f of dir.values()){
       if(f.kind==="file"){
         const file=await f.getFile();
+
         if(file.type.startsWith("audio")){
-          this.songs.push({file,name:file.name});
+          await this.saveSong(file);
         }
       }
     }
 
-    this.render();
+    await this.loadAll();
   }
 
-  render(){
+  async saveSong(file){
+    const db=await this.db();
+    const tx=db.transaction(this.storeSongs,"readwrite");
+
+    tx.objectStore(this.storeSongs).put({
+      name:file.name,
+      blob:await file.arrayBuffer(),
+      type:file.type,
+      playlists:[]
+    });
+  }
+
+  /* ---------------- LOAD SONGS ---------------- */
+  async loadAll(){
+    const db=await this.db();
+    const tx=db.transaction(this.storeSongs,"readonly");
+
+    const req=tx.objectStore(this.storeSongs).getAll();
+
+    req.onsuccess=()=>{
+      this.songs=req.result;
+      this.render();
+    };
+  }
+
+  /* ---------------- PLAYLISTS ---------------- */
+  async loadPlaylists(){
+    const db=await this.db();
+    const tx=db.transaction(this.storeLists,"readonly");
+
+    const req=tx.objectStore(this.storeLists).getAll();
+
+    req.onsuccess=()=>{
+      this.playlists=req.result || [];
+      this.renderPlaylistBar();
+    };
+  }
+
+  async savePlaylist(name){
+    const db=await this.db();
+    const tx=db.transaction(this.storeLists,"readwrite");
+
+    tx.objectStore(this.storeLists).put({
+      name,
+      songs:[]
+    });
+
+    await this.loadPlaylists();
+  }
+
+  /* ---------------- SEARCH ---------------- */
+  filterSongs(query){
+    if(!query) return this.songs;
+
+    return this.songs.filter(s=>
+      s.name.toLowerCase().includes(query.toLowerCase())
+    );
+  }
+
+  addSearchUI(){
+    const search=document.createElement("input");
+    search.placeholder="Search songs...";
+    search.style.cssText=`
+      width:90%;
+      margin:10px 20px;
+      padding:12px;
+      border-radius:12px;
+      border:none;
+      outline:none;
+      background:rgba(255,255,255,0.08);
+      color:white;
+    `;
+
+    search.oninput=()=>{
+      this.render(search.value);
+    };
+
+    document.querySelector(".hero").appendChild(search);
+  }
+
+  /* ---------------- PLAYLIST UI ---------------- */
+  addPlaylistUI(){
+    const bar=document.createElement("div");
+
+    bar.innerHTML=`
+      <div style="display:flex;gap:10px;align-items:center;padding:0 20px;margin-top:10px;">
+        <button id="newList" class="btn">+</button>
+        <select id="listSelect" style="padding:10px;border-radius:10px;">
+          <option value="all">All Songs</option>
+        </select>
+      </div>
+    `;
+
+    document.querySelector(".app").insertBefore(bar, this.list);
+
+    document.getElementById("newList").onclick=()=>{
+      const name=prompt("Playlist name?");
+      if(name) this.savePlaylist(name);
+    };
+
+    document.getElementById("listSelect").onchange=(e)=>{
+      this.currentList=e.target.value;
+      this.render();
+    };
+  }
+
+  renderPlaylistBar(){
+    const select=document.getElementById("listSelect");
+
+    select.innerHTML=`<option value="all">All Songs</option>`;
+
+    this.playlists.forEach(p=>{
+      const opt=document.createElement("option");
+      opt.value=p.name;
+      opt.textContent=p.name;
+      select.appendChild(opt);
+    });
+  }
+
+  /* ---------------- FILTER BY PLAYLIST ---------------- */
+  getFilteredSongs(query){
+    let list=this.filterSongs(query);
+
+    if(this.currentList!=="all"){
+      list=list.filter(s=>
+        s.playlists?.includes(this.currentList)
+      );
+    }
+
+    return list;
+  }
+
+  /* ---------------- RENDER ---------------- */
+  render(query=""){
     this.list.innerHTML="";
 
-    this.songs.forEach((s,i)=>{
+    const songs=this.getFilteredSongs(query);
+
+    if(!songs.length){
+      this.list.innerHTML=`<div style="padding:40px;text-align:center;color:rgba(255,255,255,0.5)">No songs found</div>`;
+      return;
+    }
+
+    songs.forEach((s,i)=>{
       const d=document.createElement("div");
       d.className="song";
+
       d.innerHTML=`
         <div class="icon"><i class="fa-solid fa-music"></i></div>
         <div class="song-info">
@@ -347,16 +436,24 @@ class Player {
           <small>Tap to play</small>
         </div>
       `;
+
       d.onclick=()=>this.play(i);
       this.list.appendChild(d);
     });
+
+    this.filtered=songs;
   }
 
+  /* ---------------- PLAY ---------------- */
   play(i){
-    this.i=i;
-    const s=this.songs[i];
+    this.current=i;
 
-    this.audio.src=URL.createObjectURL(s.file);
+    const s=this.filtered ? this.filtered[i] : this.songs[i];
+
+    const blob=new Blob([s.blob],{type:s.type});
+    const url=URL.createObjectURL(blob);
+
+    this.audio.src=url;
     this.audio.play();
 
     this.title.textContent=s.name;
@@ -367,21 +464,17 @@ class Player {
   }
 
   next(){
-    this.play((this.i+1)%this.songs.length);
+    if(!this.filtered?.length) return;
+    this.play((this.current+1)%this.filtered.length);
   }
 
   prev(){
-    this.play((this.i-1+this.songs.length)%this.songs.length);
+    if(!this.filtered?.length) return;
+    this.play((this.current-1+this.filtered.length)%this.filtered.length);
   }
 }
 
-new Player();
-
-/* PWA */
-if("serviceWorker" in navigator){
-  navigator.serviceWorker.register("service-worker.js");
-}
-</script>
+new Player();</script>
 
 </body>
 </html>
